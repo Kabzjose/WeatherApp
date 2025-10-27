@@ -52,3 +52,34 @@ button:hover {
 .error {
   color: red;
 }
+.search-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+#city {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 220px;
+  font-size: 16px;
+}
+
+#searchBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+#searchBtn .search-icon {
+  width: 25px;
+  height: 25px;
+  transition: transform 0.2s;
+}
+
+#searchBtn:hover .search-icon {
+  transform: scale(1.1);
+}

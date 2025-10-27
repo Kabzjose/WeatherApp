@@ -5,6 +5,7 @@ const cityInput=document.getElementById("cityInput")
 const weatherDisplay=document.getElementById("weatherDisplay")
 
 
+
 searchBtn.addEventListener("click",()=>{
     const city=cityInput.value.trim()
     if(city === ""){
@@ -16,7 +17,7 @@ searchBtn.addEventListener("click",()=>{
 //fetching weather data
 async function getWeather(city) {
     try{
-       const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+       const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`;
        const response=await fetch(url)
        //handling invalid cities
        if(!response.ok){
@@ -26,7 +27,7 @@ async function getWeather(city) {
        const data=await response.json()
 
        //didspaying the weather data
-       weatherInfo.innerHTML = `
+       weatherDisplay.innerHTML = `
       <h2>${data.name}, ${data.sys.country}</h2>
       <p><strong>Temperature:</strong> ${data.main.temp}°C</p>
       <p><strong>Weather:</strong> ${data.weather[0].description}</p>
@@ -34,7 +35,7 @@ async function getWeather(city) {
       <p><strong>Wind Speed:</strong> ${data.wind.speed} m/s</p>`;
       // Handling errors
     }catch (error){
-        weatherInfo.innerHTML="`<p style;color:red;>${error.message}</p>`;"
+        weatherDisplay.innerHTML=`<p style="color:red;"">${error.message}</p>`;
     }
 
 }
